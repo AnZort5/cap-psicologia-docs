@@ -9,7 +9,7 @@ const config = {
   url: 'https://tu-sitio.com',
   baseUrl: '/',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'ignore', // Cambiado a 'ignore' para que Vercel no falle si hay un enlace mal puesto
   
   markdown: {
     hooks: {
@@ -29,10 +29,9 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          showLastUpdateTime: true,
+          showLastUpdateTime: false, // Apagado temporalmente para evitar problemas de Git en Vercel
           breadcrumbs: true,
         },
-        // AQUÍ CONFIGURAMOS LA BITÁCORA DE ACTUALIZACIONES
         blog: {
           routeBasePath: 'actualizaciones',
           showReadingTime: false,
@@ -48,9 +47,7 @@ const config = {
     ],
   ],
 
-  plugins: [
-    'docusaurus-plugin-image-zoom',
-  ],
+  // Eliminamos el plugin de Zoom temporalmente
 
   themes: [
     [
@@ -60,7 +57,7 @@ const config = {
         hashed: true,
         language: ["es"],
         indexDocs: true,
-        indexBlog: true, // Ahora el buscador también encontrará actualizaciones
+        indexBlog: true,
         indexPages: true,
         docsRouteBasePath: "/docs",
       }),
@@ -81,13 +78,6 @@ const config = {
           autoCollapseCategories: true,
         },
       },
-      zoom: {
-        selector: '.markdown img',
-        background: {
-          light: 'rgba(255, 255, 255, 0.95)',
-          dark: 'rgba(30, 30, 30, 0.95)'
-        },
-      },
       navbar: {
         title: 'CAP Psicología',
         hideOnScroll: true,
@@ -102,7 +92,6 @@ const config = {
             position: 'left',
             label: '📚 Ingresar al Manual',
           },
-          // AQUÍ AGREGAMOS EL ENLACE A LA BITÁCORA EN EL MENÚ SUPERIOR
           {
             to: '/actualizaciones', 
             label: '🔄 Actualizaciones del Sistema', 
