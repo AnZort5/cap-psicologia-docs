@@ -9,13 +9,8 @@ const config = {
   url: 'https://tu-sitio.com',
   baseUrl: '/',
 
-  onBrokenLinks: 'ignore', // Cambiado a 'ignore' para que Vercel no falle si hay un enlace mal puesto
-  
-  markdown: {
-    hooks: {
-      onBrokenMarkdownLinks: 'warn',
-    }
-  },
+  onBrokenLinks: 'ignore',
+  onBrokenMarkdownLinks: 'ignore',
 
   i18n: {
     defaultLocale: 'es',
@@ -29,25 +24,16 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          showLastUpdateTime: false, // Apagado temporalmente para evitar problemas de Git en Vercel
+          showLastUpdateTime: false,
           breadcrumbs: true,
         },
-        blog: {
-          routeBasePath: 'actualizaciones',
-          showReadingTime: false,
-          blogTitle: 'Actualizaciones del Sistema',
-          blogDescription: 'Registro de nuevas funciones y correcciones en el sistema web del CAP.',
-          blogSidebarCount: 'ALL',
-          blogSidebarTitle: 'Historial de Versiones',
-        },
+        blog: false, // Apagamos el blog por ahora
         theme: {
           customCss: './src/css/custom.css',
         },
       }),
     ],
   ],
-
-  // Eliminamos el plugin de Zoom temporalmente
 
   themes: [
     [
@@ -57,7 +43,7 @@ const config = {
         hashed: true,
         language: ["es"],
         indexDocs: true,
-        indexBlog: true,
+        indexBlog: false,
         indexPages: true,
         docsRouteBasePath: "/docs",
       }),
@@ -91,11 +77,6 @@ const config = {
             sidebarId: 'tutorialSidebar',
             position: 'left',
             label: '📚 Ingresar al Manual',
-          },
-          {
-            to: '/actualizaciones', 
-            label: '🔄 Actualizaciones del Sistema', 
-            position: 'left'
           },
         ],
       },
