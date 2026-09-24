@@ -1,9 +1,5 @@
 # 📅 Gestión de Agenda y Citas
 
-import BotonImprimir from '@site/src/components/BotonImprimir';
-
-<BotonImprimir />
-
 Lineamientos operativos para la administración de la agenda clínica y el control del flujo de pacientes en el Área de Psicología.
 
 ## Programación de Nuevas Consultas
